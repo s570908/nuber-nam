@@ -8,6 +8,8 @@ import { X_JWT } from "./constants";
 import schema from "./schema";
 import { verifyJWT } from "./utils/JWT";
 import passport from "./utils/passport";
+import dotenv from "dotenv";
+dotenv.config();
 
 class App {
 	public app: GraphQLServer;

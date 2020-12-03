@@ -1,4 +1,6 @@
 import axios from "axios";
+import dotenv from "dotenv";
+dotenv.config();
 
 export const fileUploader = async (files: FileList) => {
 	const formData = new FormData();

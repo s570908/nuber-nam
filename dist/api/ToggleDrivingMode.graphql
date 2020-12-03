@@ -1,8 +1,0 @@
-type ToggleDrivingModeResponse {
-	res: Boolean!
-	error: String
-}
-
-type Mutation {
-	ToggleDrivingMode: ToggleDrivingModeResponse!
-}

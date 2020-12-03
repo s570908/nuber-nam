@@ -7,6 +7,8 @@ import { withClientState } from "apollo-link-state";
 import { WebSocketLink } from "apollo-link-ws";
 import { getMainDefinition } from "apollo-utilities";
 import { toast } from "react-toastify";
+import dotenv from "dotenv";
+dotenv.config();
 
 const isDev = process.env.NODE_ENV === "development";
 

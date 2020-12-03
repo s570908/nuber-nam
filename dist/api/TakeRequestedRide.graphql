@@ -1,8 +1,0 @@
-type TakeRequestedRideResponse {
-	res: Boolean!
-	error: String
-}
-
-type Mutation {
-	TakeRequestedRide(rideId: Int!): TakeRequestedRideResponse!
-}

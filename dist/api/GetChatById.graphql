@@ -1,9 +1,0 @@
-type GetChatByIdResponse {
-	res: Boolean!
-	error: String
-	chat: Chat
-}
-
-type Query {
-	GetChatById(chatId: Int!): GetChatByIdResponse!
-}

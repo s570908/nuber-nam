@@ -1,9 +1,0 @@
-type GetRideHistoryResponse {
-	res: Boolean!
-	error: String
-	rides: [Ride]
-}
-
-type Query {
-	GetRideHistory(isDriver: Boolean!, paging: Int!): GetRideHistoryResponse!
-}

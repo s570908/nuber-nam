@@ -1,9 +1,0 @@
-type GetNearbyDriversResponse {
-	res: Boolean!
-	error: String
-	drivers: [User]
-}
-
-type Query {
-	GetNearbyDrivers: GetNearbyDriversResponse!
-}

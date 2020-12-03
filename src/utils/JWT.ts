@@ -1,5 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "../entities/User";
+import dotenv from "dotenv";
+dotenv.config();
 
 export const createJWT = (id: number): string => {
 	const token = jwt.sign({ id }, process.env.JWT_TOKEN || "");

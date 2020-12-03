@@ -5,6 +5,8 @@ import Place from "./entities/Place";
 import Ride from "./entities/Ride";
 import User from "./entities/User";
 import Verification from "./entities/Verification";
+import dotenv from "dotenv";
+dotenv.config();
 
 const ConnectionOptions: ConnectionOptions = {
 	type: "postgres",

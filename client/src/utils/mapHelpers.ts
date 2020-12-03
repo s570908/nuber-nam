@@ -1,5 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
+import dotenv from "dotenv";
+dotenv.config();
 
 export interface ICoords {
 	lat: number;
@@ -8,7 +10,7 @@ export interface ICoords {
 
 export const loadGoogleMapApi = (onLoadSuccess: () => any) => {
 	const script = document.createElement(`script`);
-	script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env
+	script.src = `${process.env.REACT_APP_CORS_PROXY}https://maps.googleapis.com/maps/api/js?key=${process.env
 		.REACT_APP_GOOGLE_MAP_API_KEY || ""}&libraries=places`;
 	document.head.append(script);
 	script.addEventListener("load", onLoadSuccess);
@@ -16,7 +18,7 @@ export const loadGoogleMapApi = (onLoadSuccess: () => any) => {
 
 export const getAddress = async (coords: ICoords) => {
 	const { lat, lng } = coords;
-	const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process
+	const url = `${process.env.REACT_APP_CORS_PROXY}https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process
 		.env.REACT_APP_GOOGLE_MAP_API_KEY || ""}`;
 	const { status, data } = await axios.get(url);
 	if (status) {

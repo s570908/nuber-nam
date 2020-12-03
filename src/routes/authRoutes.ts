@@ -1,5 +1,7 @@
 import { Express } from "express";
 import passport from "../utils/passport";
+import dotenv from "dotenv";
+dotenv.config();
 
 const url =
 	process.env.NODE_ENV === "development"

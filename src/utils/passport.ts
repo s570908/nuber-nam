@@ -3,6 +3,8 @@ import { Strategy as FaceBookStrategy } from "passport-facebook";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import User from "../entities/User";
 import { createJWT } from "./JWT";
+import dotenv from "dotenv";
+dotenv.config();
 
 passport.use(
 	new FaceBookStrategy(
@@ -12,7 +14,7 @@ passport.use(
 			callbackURL: "/api/auth/facebook/callback",
 			profileFields: ["id", "displayName", "photos", "email"]
 		},
-		async (_, __, profile, done) => {
+		async (_: any, __: any, profile: { id: any; displayName: any; photos: any; }, done: (arg0: null, arg1: User, arg2: string) => any) => {
 			const existedUser = await User.findOne({ fbId: profile.id });
 			if (existedUser) {
 				const token = await createJWT(existedUser.id);
@@ -45,10 +47,10 @@ passport.use(
 			}
 			const newUser = await User.create({
 				googleId: profile.id,
-				firstName: profile.name.givenName,
-				lastName: profile.name.familyName,
-				profilePhoto: profile.photos[0].value,
-				email: profile.emails[0].value,
+				firstName: profile.name!.givenName,
+				lastName: profile.name!.familyName,
+				profilePhoto: profile.photos![0].value,
+				email: profile.emails![0].value,
 				verifiedEmail: true
 			}).save();
 			const token = await createJWT(newUser.id);

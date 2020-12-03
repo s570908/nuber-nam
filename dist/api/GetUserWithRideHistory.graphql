@@ -1,9 +1,0 @@
-type GetUserWithRideHistoryResponse {
-	res: Boolean!
-	error: String
-	user: User
-}
-
-type Query {
-	GetUserWithRideHistory: GetUserWithRideHistoryResponse!
-}

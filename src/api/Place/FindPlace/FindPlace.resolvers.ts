@@ -1,6 +1,8 @@
 import Axios from "axios";
 import { FindPlaceQueryArgs, FindPlaceResponse } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
+import dotenv from "dotenv";
+dotenv.config();
 
 const resolvers: Resolvers = {
 	Query: {
