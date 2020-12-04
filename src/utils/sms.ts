@@ -1,19 +1,18 @@
-//import "dotenv/config";
 import dotenv from "dotenv";
 dotenv.config();
-
 import Twilio from "twilio";
 
-const twilioClient = Twilio(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
+const { TWILIO_SID, TWILIO_TOKEN, TWILIO_PHONE } = process.env;
 
-export const sendVerificationSMS = (to: string, key: string) => {
-	sendSMS(to, `Your verification code is : ${key}`);
-};
+const twilioClient = Twilio(TWILIO_SID, TWILIO_TOKEN);
 
-export const sendSMS = (to: string, body: string) => {
-	return twilioClient.messages.create({
-		body,
-		to,
-		from: process.env.TWILIO_PHONE
-	});
-};
+function snedSMS(to: string, body: string) {
+    return twilioClient.messages.create({
+        body,
+        to,
+        from: TWILIO_PHONE,
+    });
+}
+
+export const sendVerificationSMS = (to: string, key: string) =>
+  snedSMS(to, `Your verification key is : ${key}`);

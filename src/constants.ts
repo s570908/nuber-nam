@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 export const PORT: number | string = process.env.PORT || 4000;
 export const PLAYGROUND: string = "/playground";
 export const GRAPHQL_ENDPOINT: string = "/graphql";
