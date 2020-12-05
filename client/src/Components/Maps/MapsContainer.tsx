@@ -13,10 +13,14 @@ interface IProps {
 }
 
 const MapsContainer: React.FC<IProps> = ({ setMap, isHome }) => {
+    
+    console.log("MapsContainer entered. isHome: ", isHome);
+
 	const mapRef = useRef();
 
 	useEffect(() => {
 		const loadMap = (coords: ICoords) => {
+            console.log("loadMap entered.");
 			const mapNode = ReactDOM.findDOMNode(mapRef.current);
 			const mapConfig: google.maps.MapOptions = {
 				center: { ...coords },
@@ -26,11 +30,13 @@ const MapsContainer: React.FC<IProps> = ({ setMap, isHome }) => {
 			setMap(new google.maps.Map(mapNode as Element, mapConfig));
 		};
 		const getCurrentLocation = () => {
+            console.log("getCurrentLocation entered. ");
 			navigator.geolocation.getCurrentPosition(
 				position => {
 					const {
 						coords: { latitude, longitude }
-					} = position;
+                    } = position;
+                    console.log("getCurrentLocation entered.");
 					loadMap({ lat: latitude, lng: longitude });
 				},
 				() => toast.error("Cannot find your location"),

@@ -9,10 +9,18 @@ export interface ICoords {
 }
 
 export const loadGoogleMapApi = (onLoadSuccess: () => any) => {
+    console.log("loadGoogleMapApi entered. process.env.REACT_APP_GOOGLE_MAP_API_KEY: ", 
+        process.env.REACT_APP_GOOGLE_MAP_API_KEY);
+    console.log("loadGoogleMapApi entered. process.env.REACT_APP_CORS_PROXY: ", 
+        process.env.REACT_APP_CORS_PROXY);
+
 	const script = document.createElement(`script`);
-	script.src = `${process.env.REACT_APP_CORS_PROXY}/https://maps.googleapis.com/maps/api/js?key=${process.env
+	script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env
 		.REACT_APP_GOOGLE_MAP_API_KEY || ""}&libraries=places`;
-	document.head.append(script);
+    document.head.append(script);
+
+    console.log("loadGoogleMapApi. document, script: ", document, script);
+    
 	script.addEventListener("load", onLoadSuccess);
 };
 
@@ -91,7 +99,7 @@ export const renderPath = (
 	const directionServiceOption: google.maps.DirectionsRequest = {
 		destination,
 		origin,
-		travelMode: google.maps.TravelMode.DRIVING
+		travelMode: google.maps.TravelMode.TRANSIT
 	};
 	directionService.route(directionServiceOption, (result, status) => {
 		if (status === google.maps.DirectionsStatus.OK) {
