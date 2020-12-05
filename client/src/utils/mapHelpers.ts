@@ -26,7 +26,7 @@ export const loadGoogleMapApi = (onLoadSuccess: () => any) => {
 
 export const getAddress = async (coords: ICoords) => {
 	const { lat, lng } = coords;
-	const url = `${process.env.REACT_APP_CORS_PROXY}/https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process
+	const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process
 		.env.REACT_APP_GOOGLE_MAP_API_KEY || ""}`;
 	const { status, data } = await axios.get(url);
 	if (status) {
@@ -41,7 +41,7 @@ export const getAddress = async (coords: ICoords) => {
 
 export const getGeoCode = async (address: string) => {
 	const encodedAddress = address.replace(" ", "+");
-	const url = `${process.env.REACT_APP_CORS_PROXY}/https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${process
+	const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${process
 		.env.REACT_APP_GOOGLE_MAP_API_KEY || ""}`;
 	const { status, data } = await axios.get(url);
 	if (status) {
