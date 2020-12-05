@@ -13,15 +13,18 @@ import Routes from "../routes";
 import VerifyPhonePresenter from "./VerifyPhonePresenter";
 import { VALIDATE_PHONE_VERIFICATION } from "./VerifyPhoneQueries";
 
-interface IProps extends RouteComponentProps {}
+interface IProps extends RouteComponentProps<
+    any,
+    any,
+    { phoneNumber?: string}
+> { }
 
 const VerifyPhoneContainer: React.FC<IProps> = ({ history, location }) => {
-	if (!location.state.phoneNumber) {
+	if (!location.state || !location.state.phoneNumber) {
 		history.push(Routes.PHONE_LOGIN);
 	}
-	const {
-		state: { phoneNumber }
-	} = location;
+    
+    const phoneNumber=location.state.phoneNumber!;
 
 	const [code, setCode] = useInput("");
 

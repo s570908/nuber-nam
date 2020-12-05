@@ -77,13 +77,13 @@ const PassengerHomeContainer: React.FC<IProps> = ({
 			const { res, error, ride } = GetRideById;
 			if (res && ride) {
 				if (ride.status === "ACCEPTED") {
-					stopPolling();
+					if(stopPolling) stopPolling();
 					history.push(`${Routes.RIDE}${rideId}`);
 				}
 			} else {
 				// [fix]
 				if (error === "not existed ride") {
-					stopPolling();
+					if(stopPolling) stopPolling();
 				} else {
 					toast.error(error);
 				}
