@@ -43,6 +43,7 @@ class App {
 				session: false
 			}),
 			(req, res) => {
+                console.log("localhost:4000/api/auth/facebook/callback entered. req, res: ", req, res);
 				res.redirect(`${url}/auth/${req.authInfo}`);
 			}
 		);

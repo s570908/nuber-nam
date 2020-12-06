@@ -10,7 +10,7 @@ import { VERIFY_PHONE } from "./PhoneLoginQueries";
 
 const PhoneLoginContainer: React.FC<RouteComponentProps> = ({ history }) => {
 	const [phoneNumber, onInputChange] = useInput("", /^[0-9]*$/);
-	const [countryCode, onSelectChange] = useInput("+33");
+	const [countryCode, onSelectChange] = useInput("+82");
 	const phoneNumberWithCode = `${countryCode}${phoneNumber}`;
 
 	const [verifyPhoneMutation, { loading }] = useMutation<

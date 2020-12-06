@@ -39,8 +39,9 @@ passport.use(
 			callbackURL: "/api/auth/google/callback",
 			scope: ["profile", "email"]
 		},
-		async (_, __, profile, cb) => {
-			const existedUser = await User.findOne({ googleId: profile.id });
+		async (_: any, __: any, profile: { id: any; name: any; photos: any; emails: any; }, cb: (arg0: undefined, arg1: User, arg2: string) => any) => {
+            console.log("GoogleStrategy entered. profile", profile);
+            const existedUser = await User.findOne({ googleId: profile.id });
 			if (existedUser) {
 				const token = await createJWT(existedUser.id);
 				return cb(undefined, existedUser, token);
