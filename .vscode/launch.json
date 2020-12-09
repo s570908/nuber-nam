@@ -8,11 +8,19 @@
             "processId": "${command:PickProcess}",
             "restart": true,
             "protocol": "inspector"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}"
         }
     ],
     "skipFiles": [
         "${workspaceFolder}/node_modules/**/*.js",
         "${workspaceFolder}/yourLibToSkip/**/*.js",
+        "${workspaceFolder}/lib/**/*.js",
         "<node_internals>/**/*.js"
       ]
 }
