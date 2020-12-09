@@ -13,7 +13,7 @@ const ConnectionOptions: ConnectionOptions = {
 	database: process.env.DB_NAME || "nuber",
 	synchronize: true,
 	entities: [Chat, Message, Place, Ride, User, Verification],
-	logging: true,
+	logging: false,
 	host: process.env.DB_ENDPOINT,
 	port: 5432,
 	username: process.env.DB_USERNAME,
