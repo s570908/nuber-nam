@@ -47,11 +47,13 @@ const MenuContainer: React.FC = () => {
     
     const [didMount, setDidMount] = useState(false); 
 
+    //console.log("MenuContainer entered. data from query GET_CURRENT_USER: ", data);
+
     useEffect(() => {
-    console.log("MenuContainer mounted.")
+    //console.log("MenuContainer mounted.")
        setDidMount(true);
        return () =>{
-           console.log("MenuContainer unmounted."); 
+           //console.log("MenuContainer unmounted."); 
            setDidMount(false);} 
     }, [])
 

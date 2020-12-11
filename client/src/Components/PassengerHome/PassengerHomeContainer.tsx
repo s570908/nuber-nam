@@ -96,9 +96,13 @@ const PassengerHomeContainer: React.FC<IProps> = ({
 	});
 
 	useQuery<GetNearbyDrivers>(GET_NEARBY_DRIVERS, {
-		fetchPolicy: "cache-and-network",
+        fetchPolicy: "cache-and-network",
+        //fetchPolicy: "network-only",
 		onCompleted: ({ GetNearbyDrivers: { drivers = [] } }) => {
-			if (drivers && drivers.length > 0 && map) {
+
+            console.log("useQuery<GetNearbyDrivers>  onCompleted entered. drivers: ", drivers);
+
+			if (drivers && drivers.length >= 0 && map) {
 				if (driverMarkers.length > drivers.length) {
 					while (driverMarkers.length > 0) {
 						const marker = driverMarkers.pop();
@@ -250,7 +254,10 @@ const PassengerHomeContainer: React.FC<IProps> = ({
 		} else {
 			setAddMode(true);
 		}
-	};
+    };
+    
+
+    console.log("PassengerHomeContainer entered.");
 
 	return (
 		<PassengerHomePresenter

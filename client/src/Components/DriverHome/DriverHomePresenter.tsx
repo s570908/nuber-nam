@@ -17,6 +17,9 @@ const DriverHomePresenter: React.FC<IProps> = ({
 	onCancelHandler,
 	onAcceptHandler
 }) => {
+
+    console.log("DriverHomePresenter entered.");
+
 	return (
 		<S.Container>
 			<SideBarMenu />

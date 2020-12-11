@@ -64,7 +64,10 @@ const PassengerHomePresenter: React.FC<IProps> = ({
 		requestRideMutation();
 	};
 
-	const addIconStyle = { top: "15px", right: "1vw" };
+    const addIconStyle = { top: "15px", right: "1vw" };
+    
+    console.log("PassengerHomePresenter entered. ");
+
 	return (
 		<React.Fragment>
 			<SideBarMenu />
