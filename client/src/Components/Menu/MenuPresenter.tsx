@@ -14,9 +14,10 @@ const MenuPresenter: React.FC<IProps> = ({
     toggleDrivingFn,
     logout
 }) => {
-    console.log("MenuPresenter entered. data.GetCurrentUser.user: ", user);
-    console.log("MenuPresenter entered. toggleDrivingFn: ", toggleDrivingFn);
-    console.log("MenuPresenter entered. logout: ", logout);
+    console.log("MenuPresenter entered.");
+    // console.log("MenuPresenter entered. data.GetCurrentUser.user: ", user);
+    // console.log("MenuPresenter entered. toggleDrivingFn: ", toggleDrivingFn);
+    // console.log("MenuPresenter entered. logout: ", logout);
     return (
         <S.Container>
             {user && user.fullName && (

@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import React, {useState, useEffect}  from "react";
+import React from "react";
 import { toast } from "react-toastify";
 import { GET_CURRENT_USER } from "../../SharedQueries";
 import { USER_LOG_OUT } from "../../SharedQueries.local";
@@ -45,15 +45,15 @@ const MenuContainer: React.FC = () => {
 	);
     const [logOutMutation] = useMutation(USER_LOG_OUT);
     
-    const [didMount, setDidMount] = useState(false); 
+    // const [didMount, setDidMount] = useState(false); 
 
-    useEffect(() => {
-    console.log("MenuContainer mounted.")
-       setDidMount(true);
-       return () =>{
-           console.log("MenuContainer unmounted."); 
-           setDidMount(false);} 
-    }, [])
+    // useEffect(() => {
+    // console.log("MenuContainer mounted.")
+    //    setDidMount(true);
+    //    return () =>{
+    //        console.log("MenuContainer unmounted."); 
+    //        setDidMount(false);} 
+    // }, [])
 
 	return (
 		<MenuPresenter
@@ -65,3 +65,4 @@ const MenuContainer: React.FC = () => {
 };
 
 export default MenuContainer;
+

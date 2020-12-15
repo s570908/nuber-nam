@@ -46,7 +46,8 @@ const PassengerHomePresenter: React.FC<IProps> = ({
 	setRideVariables
 }) => {
 	const onRequestRide = async () => {
-		const map = document.getElementById("googleMap");
+        const map = document.getElementById("googleMap");
+        //console.log("PassengerHomePresenter onRequestRide entered. map: ", map);
 		if (map) {
 			const canvas = await html2canvas(map, {
 				allowTaint: false,
@@ -55,8 +56,11 @@ const PassengerHomePresenter: React.FC<IProps> = ({
 				},
 				useCORS: true
 			});
-			const url = canvas.toDataURL("image/png");
-			const res = await base64Uploader(url);
+            const url = canvas.toDataURL("image/png");
+
+            //console.log("PassengerHomePresenter onRequestRide entered. url: ", url);
+            
+            const res = await base64Uploader(url);
 			if (res) {
 				setRideVariables({ rideImage: res, price, duration, distance });
 			}
